@@ -299,8 +299,7 @@ const seatsCount = availableSeats(selectedDate);
         navigate("/summary", {
           state: {
             ...bookingData, 
-            table: selectedTable.label,  // ✅ PASSING TABLE
-            guests: selectedTable.seats 
+            table: selectedTable.label  // ✅ PASSING TABLE
           }
         })
       }

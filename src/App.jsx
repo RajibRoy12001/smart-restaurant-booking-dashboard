@@ -10,8 +10,9 @@ import Success from "./pages/Success";
 import ReservationSummary from "./pages/ReservationSummary";
 import TableShowModal from "./pages/TableShowModal";
 import EmailConfirmation from "./pages/EmailConfirmation";
-
 import TimeSlots from "./booking/TimeSlots";
+import BookingDetails from "./pages/BookingDetails";
+import Offer from "./pages/Offer";
 
 // 🔥 Separate component to use useLocation
 function AppContent() {
@@ -32,9 +33,12 @@ function AppContent() {
       {!shouldHideNavbar && <Navbar />}
 
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/booking-details" element={<BookingDetails />} />
+        <Route path="/Offer" element={<Offer/>} />
 
         {/* Flow pages */}
         <Route path="/select-table" element={<TableShowModal />} />
