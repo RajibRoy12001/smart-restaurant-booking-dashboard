@@ -8,12 +8,12 @@ const SignupStep = ({ auth, onSuccess }) => {
   const [error, setError] = useState("");
 
   const handleSignup = () => {
-    console.log("👤 First:", firstName);
-    console.log("👤 Last:", lastName);
-    console.log("📧 Email:", email);
-    console.log("📱 Mobile:", auth.mobile);
+    console.log(" First:", firstName);
+    console.log(" Last:", lastName);
+    console.log(" Email:", email);
+    console.log(" Mobile:", auth.mobile);
 
-    // ✅ validation
+    //  validation
     if (!firstName || !lastName || !email) {
       setError("Please fill all fields");
       return;
@@ -27,14 +27,14 @@ const SignupStep = ({ auth, onSuccess }) => {
 
     setError("");
 
-    // ✅ combine name
+    //  combine name
     const userData = {
       name: `${firstName} ${lastName}`,
       email,
       mobile: auth.mobile
     };
 
-    console.log("💾 Saving:", userData);
+    console.log(" Saving:", userData);
 
     localStorage.setItem("user", JSON.stringify(userData));
 

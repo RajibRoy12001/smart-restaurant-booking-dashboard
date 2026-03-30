@@ -14,42 +14,67 @@ import TimeSlots from "./booking/TimeSlots";
 import BookingDetails from "./pages/BookingDetails";
 import Offer from "./pages/Offer";
 
-// 🔥 Separate component to use useLocation
+import AdminLayout from "./layout/AdminLayout";
+import AdminDashboard from "./pages/AdminDashboard";
+import Bookings from "./pages/Bookings";
+import Users from "./pages/Users";
+import Analytics from "./pages/Analytics";
+
+
+//  Separate component to use useLocation
 function AppContent() {
   const location = useLocation();
+ // Admin Auth Check
 
-  // ✅ Pages where navbar should be hidden
+
+  //  Pages where navbar should be hidden
   const hideNavbarRoutes = [
     "/select-table",
     "/summary",
-    "/email-confirmation"
+    "/email-confirmation",
+    "/admin",
+  "/admin/bookings",
+  "/admin/users",
+  "/admin/analytics"
   ];
 
-  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
-
+  const shouldHideNavbar =
+  location.pathname.startsWith("/admin") ||
+  hideNavbarRoutes.includes(location.pathname);
   return (
     <>
-      {/* ✅ Navbar condition */}
+      {/*  Navbar condition */}
       {!shouldHideNavbar && <Navbar />}
 
-      <Routes>
-
+    <Routes>
+ 
+  
+      {/* ADMIN ROUTES */}
+<Route path="/admin" element={<AdminLayout />}>
+  <Route index element={<AdminDashboard />} />
+  <Route path="bookings" element={<Bookings />} />
+  <Route path="users" element={<Users />} />
+  <Route path="analytics" element={<Analytics />} />
+</Route>
+        {/* USER ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking-details" element={<BookingDetails />} />
-        <Route path="/Offer" element={<Offer/>} />
+        <Route path="/Offer" element={<Offer />} />
 
-        {/* Flow pages */}
+        {/* FLOW */}
         <Route path="/select-table" element={<TableShowModal />} />
         <Route path="/summary" element={<ReservationSummary />} />
         <Route path="/email-confirmation" element={<EmailConfirmation />} />
 
         <Route path="/success" element={<Success />} />
         <Route path="/booking-time" element={<TimeSlots />} />
+
       </Routes>
 
-      {/* ✅ Optional: hide footer also if you want */}
+
+      {/*  Optional: hide footer also if you want */}
       {!shouldHideNavbar && <Footer />}
     </>
   );

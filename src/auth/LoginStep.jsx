@@ -4,7 +4,7 @@ const LoginStep = ({ auth }) => {
   const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
 
-  // ✅ handle input (only digits, max 10)
+  //  handle input (only digits, max 10)
   const handleChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
 
@@ -13,7 +13,7 @@ const LoginStep = ({ auth }) => {
     }
   };
 
-  // ✅ send OTP with validation
+  //  send OTP with validation
   const handleSend = () => {
     if (phone.length !== 10) {
       setError("Enter valid 10-digit phone number");
@@ -21,7 +21,7 @@ const LoginStep = ({ auth }) => {
     }
 
     setError("");
-    console.log("📱 Phone Entered:", phone);
+    console.log(" Phone Entered:", phone);
 
     auth.sendOtp(phone);
   };

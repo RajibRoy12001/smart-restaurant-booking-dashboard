@@ -1,0 +1,148 @@
+import { FaHome, FaClipboardList, FaUsers, FaChartBar } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
+
+
+const AdminSidebar = ({ collapsed }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  return (
+    <div
+      className={`fixed top-0 left-0 h-screen bg-[#021B1E] text-white transition-all duration-300 ${
+        collapsed ? "w-20 p-3" : "w-64 p-5"
+      }`}
+    >
+
+      {/* Logo */}
+      <div className="mb-8 flex items-center justify-center">
+  {collapsed ? (
+    //  Small version (collapsed)
+    <div className="w-8 h-8 bg-[#d4af37] text-black flex items-center justify-center rounded-full font-bold">
+      A
+    </div>
+  ) : (
+    //  Full logo
+    <img
+      src={logo}
+      alt="logo"
+     className="h-10 object-contain transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)]"
+    />
+  )}
+</div>
+
+      <ul className="space-y-3">
+
+        {/* Dashboard */}
+        <li
+          onClick={() => navigate("/admin")}
+          className={`relative flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-all duration-300 group
+          ${
+            location.pathname === "/admin"
+              ? "bg-[#d4af37]/20 text-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)]"
+              : "hover:bg-[#d4af37]/10"
+          }`}
+        >
+          {/* Sliding bar */}
+          <span
+            className={`absolute left-0 top-0 h-full w-1 bg-[#d4af37] rounded-r transition-all duration-300
+            ${
+              location.pathname === "/admin"
+                ? "opacity-100 scale-y-100"
+                : "opacity-0 scale-y-0"
+            }`}
+          ></span>
+
+          {/* Icon */}
+          <span className="text-lg transition-transform duration-300 group-hover:scale-110">
+            <FaHome />
+          </span>
+
+          {/* Text */}
+          {!collapsed && <span className="text-sm font-medium">Dashboard</span>}
+        </li>
+
+        {/* Bookings */}
+        <li
+          onClick={() => navigate("/admin/bookings")}
+          className={`relative flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-all duration-300 group
+          ${
+            location.pathname.startsWith("/admin/bookings")
+              ? "bg-[#d4af37]/20 text-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)]"
+              : "hover:bg-[#d4af37]/10"
+          }`}
+        >
+          <span
+            className={`absolute left-0 top-0 h-full w-1 bg-[#d4af37] rounded-r transition-all duration-300
+            ${
+              location.pathname.startsWith("/admin/bookings")
+                ? "opacity-100 scale-y-100"
+                : "opacity-0 scale-y-0"
+            }`}
+          ></span>
+
+          <span className="text-lg transition-transform duration-300 group-hover:scale-110">
+            <FaClipboardList />
+          </span>
+
+          {!collapsed && <span className="text-sm font-medium">Bookings</span>}
+        </li>
+
+        {/* Users */}
+        <li
+          onClick={() => navigate("/admin/users")}
+          className={`relative flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-all duration-300 group
+          ${
+            location.pathname.startsWith("/admin/users")
+              ? "bg-[#d4af37]/20 text-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)]"
+              : "hover:bg-[#d4af37]/10"
+          }`}
+        >
+          <span
+            className={`absolute left-0 top-0 h-full w-1 bg-[#d4af37] rounded-r transition-all duration-300
+            ${
+              location.pathname.startsWith("/admin/users")
+                ? "opacity-100 scale-y-100"
+                : "opacity-0 scale-y-0"
+            }`}
+          ></span>
+
+          <span className="text-lg transition-transform duration-300 group-hover:scale-110">
+            <FaUsers />
+          </span>
+
+          {!collapsed && <span className="text-sm font-medium">Customers</span>}
+        </li>
+
+        {/* Analytics */}
+        <li
+          onClick={() => navigate("/admin/analytics")}
+          className={`relative flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-all duration-300 group
+          ${
+            location.pathname.startsWith("/admin/analytics")
+              ? "bg-[#d4af37]/20 text-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)]"
+              : "hover:bg-[#d4af37]/10"
+          }`}
+        >
+          <span
+            className={`absolute left-0 top-0 h-full w-1 bg-[#d4af37] rounded-r transition-all duration-300
+            ${
+              location.pathname.startsWith("/admin/analytics")
+                ? "opacity-100 scale-y-100"
+                : "opacity-0 scale-y-0"
+            }`}
+          ></span>
+
+          <span className="text-lg transition-transform duration-300 group-hover:scale-110">
+            <FaChartBar />
+          </span>
+
+          {!collapsed && <span className="text-sm font-medium">Analytics</span>}
+        </li>
+
+      </ul>
+    </div>
+  );
+};
+
+export default AdminSidebar;

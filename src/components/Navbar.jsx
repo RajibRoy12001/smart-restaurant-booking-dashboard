@@ -30,7 +30,7 @@ useEffect(() => {
   document.addEventListener("mousedown", handleClickOutside);
   return () => document.removeEventListener("mousedown", handleClickOutside);
 }, []);
-  // ✅ Load user on mount
+  //  Load user on mount
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -38,7 +38,7 @@ useEffect(() => {
     }
   }, []);
 
-  // ✅ Sync user across tabs
+  //  Sync user across tabs
   useEffect(() => {
     const handleStorage = () => {
       const storedUser = localStorage.getItem("user");
@@ -54,7 +54,7 @@ useEffect(() => {
     };
   }, []);
 
-  // ✅ Scroll effect
+  //  Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
@@ -64,13 +64,13 @@ useEffect(() => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Logout
+  //  Logout
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
   };
 
-  // ✅ Reserve click logic
+  //  Reserve click logic
   const handleReserve = () => {
     if (user) {
       setOpenDrawer(true);
@@ -111,12 +111,12 @@ useEffect(() => {
   }}
   className="flex items-center gap-2 cursor-pointer group"
 >
-  {/* 🟡 Avatar */}
+  {/*  Avatar */}
   <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#d4af37] to-yellow-500 flex items-center justify-center text-black font-semibold">
     {user.name?.charAt(0).toUpperCase()}
   </div>
 
-  {/* 🟡 Text */}
+  {/*  Text */}
   <div className="flex items-center">
     <span className="text-base text-gray-300">Hi,</span>
 
@@ -125,7 +125,7 @@ useEffect(() => {
     </span>
   </div>
 
-  {/* 🔽 Icon */}
+  {/*  Icon */}
   <FiChevronDown
     size={20}
     className={`ml-1 transition-all duration-200 ${
@@ -188,13 +188,13 @@ useEffect(() => {
         )}
       </nav>
 
-      {/* 🔐 LOGIN POPUP */}
+      {/*  LOGIN POPUP */}
       <AuthModal
         open={openAuth}
         setOpen={setOpenAuth}
         onSuccess={() => {
           const storedUser = localStorage.getItem("user");
-          console.log("📦 User from localStorage:", storedUser);
+          console.log(" User from localStorage:", storedUser);
 
           if (storedUser) {
             const parsed = JSON.parse(storedUser);
@@ -209,7 +209,7 @@ useEffect(() => {
         }}
       />
 
-      {/* 📅 Booking Sidebar */}
+      {/* Booking Sidebar */}
       <BookingDrawer 
       open={openDrawer} 
       setOpen={setOpenDrawer} 

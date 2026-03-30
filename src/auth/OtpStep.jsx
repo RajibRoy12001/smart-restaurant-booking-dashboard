@@ -6,7 +6,7 @@ const OtpStep = ({ auth }) => {
   const [error, setError] = useState("");
   const [timer, setTimer] = useState(30);
 
-  // ⏱ countdown logic
+  //  countdown logic
   useEffect(() => {
     if (timer === 0) return;
 
@@ -17,9 +17,9 @@ const OtpStep = ({ auth }) => {
     return () => clearInterval(interval);
   }, [timer]);
 
-  // 🔐 verify OTP
+  //  verify OTP
   const handleVerify = async () => {
-     console.log("🔐 Entered OTP:", otp);
+     console.log(" Entered OTP:", otp);
   if (!otp) {
     setError("Please enter OTP");
     return;
@@ -35,7 +35,7 @@ const OtpStep = ({ auth }) => {
   await auth.verifyOtp(); // assume it returns true/false
 };
 
-  // 🔁 resend OTP
+  //  resend OTP
   const handleResend = () => {
     setTimer(30);
     setOtp("");

@@ -38,7 +38,7 @@ const BookingDetails = () => {
   return (
     <div className="min-h-screen px-20 py-20 bg-[#021B1E] text-white">
 
-      {/* 🔙 Back Button */}
+      {/*  Back Button */}
       <button
         onClick={() => navigate("/")}
         className="mb-6 text-lg font-medium text-[#d4af37] flex items-center gap-2 group"
@@ -53,7 +53,7 @@ const BookingDetails = () => {
         Your Bookings
       </h1>
 
-      {/* 🔥 Current Booking */}
+      {/*  Current Booking */}
       <section className="mb-10">
         <h2 className="text-xl mb-4 text-[#d4af37]">Current Booking</h2>
 
@@ -90,7 +90,7 @@ const BookingDetails = () => {
         )}
       </section>
 
-      {/* 🔥 Previous Booking */}
+      {/*  Previous Booking */}
       <section>
         <h2 className="text-xl mb-4 text-[#d4af37]">Previous Bookings</h2>
 
