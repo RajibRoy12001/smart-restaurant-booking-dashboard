@@ -19,7 +19,10 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Bookings from "./pages/Bookings";
 import Users from "./pages/Users";
 import Analytics from "./pages/Analytics";
-
+import Customers from "./pages/Customers";
+import Payment from "./pages/PaymentsRevenue";
+import Notifications from "./pages/Notifications";
+import TablesManagement from "./pages/Tablesmanagement";
 
 //  Separate component to use useLocation
 function AppContent() {
@@ -34,8 +37,12 @@ function AppContent() {
     "/email-confirmation",
     "/admin",
   "/admin/bookings",
+  "/admin/customers",
   "/admin/users",
-  "/admin/analytics"
+  "/admin/analytics",
+  "/admin/payment",
+  "/admin/notifications"
+
   ];
 
   const shouldHideNavbar =
@@ -53,7 +60,11 @@ function AppContent() {
 <Route path="/admin" element={<AdminLayout />}>
   <Route index element={<AdminDashboard />} />
   <Route path="bookings" element={<Bookings />} />
+  <Route path="customers" element={<Customers />} />
+  <Route path="payment" element={<Payment />} />
+  <Route path="notifications" element={<Notifications />} />
   <Route path="users" element={<Users />} />
+  <Route path="tablesmanagement" element={<TablesManagement />} />
   <Route path="analytics" element={<Analytics />} />
 </Route>
         {/* USER ROUTES */}

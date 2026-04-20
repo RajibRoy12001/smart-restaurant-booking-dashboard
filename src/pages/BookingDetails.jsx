@@ -4,7 +4,7 @@ import { FiCheckCircle } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiXCircle } from "react-icons/fi";
 
-
+//for user booking details
 const BookingDetails = () => {
   const navigate = useNavigate();
   const [bookings, setBookings] = useState([]);
