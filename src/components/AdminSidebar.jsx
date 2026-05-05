@@ -1,4 +1,5 @@
 import { FaHome, FaClipboardList, FaUsers, FaChartBar,FaMoneyBillWave, FaUserCog , FaBell } from "react-icons/fa";
+import { FiSettings ,FiGrid } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 
@@ -208,7 +209,7 @@ const AdminSidebar = ({ collapsed }) => {
 
           <span className="text-lg transition-transform duration-300 group-hover:scale-110">
             
-            //
+             <FiGrid />
           </span>
 
           {!collapsed && <span className="text-sm font-medium">Tablesmanagement</span>}
@@ -217,10 +218,10 @@ const AdminSidebar = ({ collapsed }) => {
 
         {/* Analytics */}
         <li
-          onClick={() => navigate("/admin/analytics")}
+          onClick={() => navigate("/admin/settings")}
           className={`relative flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer transition-all duration-300 group
           ${
-            location.pathname.startsWith("/admin/analytics")
+            location.pathname.startsWith("/admin/settings")
               ? "bg-[#d4af37]/20 text-[#d4af37] shadow-[0_0_10px_rgba(212,175,55,0.4)]"
               : "hover:bg-[#d4af37]/10"
           }`}
@@ -228,17 +229,17 @@ const AdminSidebar = ({ collapsed }) => {
           <span
             className={`absolute left-0 top-0 h-full w-1 bg-[#d4af37] rounded-r transition-all duration-300
             ${
-              location.pathname.startsWith("/admin/analytics")
+              location.pathname.startsWith("/admin/settings")
                 ? "opacity-100 scale-y-100"
                 : "opacity-0 scale-y-0"
             }`}
           ></span>
 
           <span className="text-lg transition-transform duration-300 group-hover:scale-110">
-            <FaChartBar />
+           <FiSettings />
           </span>
 
-          {!collapsed && <span className="text-sm font-medium">Analytics</span>}
+          {!collapsed && <span className="text-sm font-medium">Settings</span>}
         </li>
 
       </ul>

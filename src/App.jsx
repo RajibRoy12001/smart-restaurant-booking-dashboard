@@ -18,7 +18,7 @@ import AdminLayout from "./layout/AdminLayout";
 import AdminDashboard from "./pages/AdminDashboard";
 import Bookings from "./pages/Bookings";
 import Users from "./pages/Users";
-import Analytics from "./pages/Analytics";
+import Settings from "./pages/Settings";
 import Customers from "./pages/Customers";
 import Payment from "./pages/PaymentsRevenue";
 import Notifications from "./pages/Notifications";
@@ -39,7 +39,7 @@ function AppContent() {
   "/admin/bookings",
   "/admin/customers",
   "/admin/users",
-  "/admin/analytics",
+  "/admin/settings",
   "/admin/payment",
   "/admin/notifications"
 
@@ -65,7 +65,7 @@ function AppContent() {
   <Route path="notifications" element={<Notifications />} />
   <Route path="users" element={<Users />} />
   <Route path="tablesmanagement" element={<TablesManagement />} />
-  <Route path="analytics" element={<Analytics />} />
+  <Route path="settings" element={<Settings />} />
 </Route>
         {/* USER ROUTES */}
         <Route path="/" element={<Home />} />
